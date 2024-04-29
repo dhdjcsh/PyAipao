@@ -414,7 +414,6 @@ if __name__ == '__main__':
         tmp = json.loads(default_post("/login/getStudentInfo", ""))
         print(tmp['data']['nickName'] + ',信息获取成功！')
         choice = input("1.开始跑步 2.退出登录 3.结束任务\n")
-        if choice == '1':
             client = Yun()
             client.start()
             client.do()
@@ -424,11 +423,4 @@ if __name__ == '__main__':
             if input("任务结束！输入yes以退出登录，任意内容结束") == 'yes':
                 sign_out()
                 input()
-        elif choice == '2':
-            sign_out()
-            input()
-    except Exception as e:
-        print('任务失败！检查token、高德地图开发者密钥或网络设置')
-        print(e)
-        print(traceback.format_exc())
-        input()
+       
