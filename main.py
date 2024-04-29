@@ -413,14 +413,22 @@ if __name__ == '__main__':
             update()
         tmp = json.loads(default_post("/login/getStudentInfo", ""))
         print(tmp['data']['nickName'] + ',信息获取成功！')
-        
-         client = Yun()
-         client.start()
-         client.do()
-         print("等待3秒，避免接口请求频繁")
-         time.sleep(3)
-        client.finish()
-        if input("任务结束！输入yes以退出登录，任意内容结束") == 'yes':
+        choice == '1'
+        if choice == '1':
+            client = Yun()
+            client.start()
+            client.do()
+            print("等待3秒，避免接口请求频繁")
+            time.sleep(3)
+            client.finish()
+            if input("任务结束！输入yes以退出登录，任意内容结束") == 'yes':
+                sign_out()
+                input()
+        elif choice == '2':
             sign_out()
             input()
-       
+    except Exception as e:
+        print('任务失败！检查token、高德地图开发者密钥或网络设置')
+        print(e)
+        print(traceback.format_exc())
+        input()
