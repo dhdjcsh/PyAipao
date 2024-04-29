@@ -413,7 +413,7 @@ if __name__ == '__main__':
             update()
         tmp = json.loads(default_post("/login/getStudentInfo", ""))
         print(tmp['data']['nickName'] + ',信息获取成功！')
-        choice == '1'
+        choice =1
         if choice == '1':
             client = Yun()
             client.start()
